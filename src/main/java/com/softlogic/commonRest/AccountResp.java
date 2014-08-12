@@ -1,25 +1,27 @@
 package com.softlogic.commonRest;
 
+import java.util.*;
+
 public class AccountResp
 {
 	public AccountResp()
 	{
-//	    accountLst = new ArrayList<AccountTx>();
+	    //accountLst = new ArrayList<AccountTx>();
 	}
-    public AccountResp(String type, String amount, boolean flexi)//, AccountTx ac)
+    public AccountResp(String type, String amount, boolean flexi, AccountTx ac)
 	{
 		super();
 		this.type = type;
 		this.amount = amount;
 		this.flexi = flexi;
-//		this.accountLst.add(ac);
+		this.accountLst.add(ac);
 	}
 
 	String type;
 	String amount;
     boolean flexi;
     
-//    List<AccountTx> accountLst;
+    List<AccountTx> accountLst = new ArrayList<AccountTx>();
 	
     public String getType()
 	{
@@ -51,13 +53,13 @@ public class AccountResp
 		this.flexi = flexi;
 	}
 
-//	public List<AccountTx> getAccountLst()
-//	{
-//		return accountLst;
-//	}
-//
-//	public void setAccountLst(List<AccountTx> accountLst)
-//	{
-//		this.accountLst = accountLst;
-//	}    
+	public List<AccountTx> getAccountLst()
+	{
+		return accountLst;
+	}
+
+	public void setAccountLst(List<AccountTx> accountLst)
+	{
+		this.accountLst = accountLst;
+	}    
 }

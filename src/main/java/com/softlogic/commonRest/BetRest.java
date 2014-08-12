@@ -20,17 +20,23 @@ public interface BetRest
 	
 	@POST
 	@Path(value = "/newPay")
-	@Produces(MediaType.APPLICATION_JSON)
 	Response newPay(String myName);
 
 	@POST
 	@Path(value = "/simpleProc")
-	@Produces(MediaType.TEXT_PLAIN)
+	//
+	// Client does not honor this
+	// must set content_type header to json 
+	//
 	@Consumes(MediaType.APPLICATION_JSON)
 	String simpleProc(Simple sim);
 
 	@POST
 	@Path(value = "/makePayment")
+	//
+	// This is required or the server will rely 
+	// on the clients "Accept" content type to marshal the response
+	//
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	AccountResp makePayment(AccountDetails myAccount);
